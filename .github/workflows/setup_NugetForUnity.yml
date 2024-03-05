@@ -1,0 +1,6 @@
+# NugetForUnityをインストール
+name: setup NugetForUnity
+run: |
+ dotnet tool install --global NuGetForUnity.Cli
+ mkdir -p ${{ env.UNITY_PATH }}/Assets/Packages
+ nugetforunity restore ${{ env.UNITY_PATH }}
