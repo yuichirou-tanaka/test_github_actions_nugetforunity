@@ -1,0 +1,14 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Setup dotnet
+
+uses: actions/setup-dotnet@v3
+with:
+  dotnet-version: 7.0.x
+
+- name: setup NugetForUnity
+run: |
+ dotnet tool install --global NuGetForUnity.Cli
+ mkdir -p ${{ env.UNITY_PATH }}/Assets/Packages
+ nugetforunity restore ${{ env.UNITY_PATH }}
+ 
